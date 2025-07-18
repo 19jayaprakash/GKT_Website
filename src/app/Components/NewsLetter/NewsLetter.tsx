@@ -1,5 +1,5 @@
 "use client";
-
+ 
 import { useRef, useState, useEffect } from "react";
 import {
   motion,
@@ -9,16 +9,16 @@ import {
   useSpring,
 } from "framer-motion";
 import Image from "next/image";
-
+ 
 const Newsletter = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
-
+ 
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
   });
-
+ 
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
@@ -27,7 +27,7 @@ const Newsletter = () => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
+ 
   const scale = useTransform(scrollYProgress, [0, 0.8], [1, 0.45]);
   const abstractopacity = useTransform(scrollYProgress, [0, 0.8, 1], [0, 0, 1]);
   const width = useTransform(
@@ -39,7 +39,7 @@ const Newsletter = () => {
   const y = useTransform(
     scrollYProgress,
     [0, 0.8],
-    ["0%", `${isMobile ? "0%" : "20%"}`]
+    ["0%", `${isMobile ? "0%" : "10%"}`]
   );
   const smoothScale = useSpring(scale, { stiffness: 120, damping: 20 });
   const smoothwidth = useSpring(width, { stiffness: 120, damping: 20 });
@@ -50,11 +50,11 @@ const Newsletter = () => {
     "/NewsLetter/image1.png",
     "/NewsLetter/image2.png",
   ];
-
+ 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isScrollComplete, setIsScrollComplete] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
-
+ 
   useMotionValueEvent(scrollYProgress, "change", (value) => {
     if (value >= 0.99 && !isScrollComplete) {
       setIsScrollComplete(true);
@@ -63,7 +63,7 @@ const Newsletter = () => {
       setCurrentImageIndex(0);
     }
   });
-
+ 
   useEffect(() => {
     if (isScrollComplete) {
       intervalRef.current = setInterval(() => {
@@ -75,18 +75,18 @@ const Newsletter = () => {
         intervalRef.current = null;
       }
     }
-
+ 
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
   }, [isScrollComplete]);
-
+ 
   return (
     <section
       ref={containerRef}
       className="min-h-[200vh] w-full relative bg-[#F6F6F9] rounded-b-4xl "
     >
-      <div className="absolute bottom-20 w-1/2 z-20 flex flex-col items-center">
+      <div className="absolute bottom-40 w-1/2 z-20 flex flex-col items-center">
         <motion.div
           initial={{ y: 100, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -100,7 +100,7 @@ const Newsletter = () => {
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 1 }}
           className="text-sm md:text-md text-black font-normal text-start md:text-center p-5 w-[80%] "
-
+ 
         >
           Receive expert insights and practical tools that help you leverage AI
           for success, delivered directly to your mail Algo4hi supports your
@@ -167,7 +167,7 @@ const Newsletter = () => {
               </a>
             </motion.div>
           )}
-
+ 
           <Image
             src={images[currentImageIndex]}
             alt="Newsletter Visual"
@@ -180,5 +180,7 @@ const Newsletter = () => {
     </section>
   );
 };
-
+ 
 export default Newsletter;
+ 
+ 

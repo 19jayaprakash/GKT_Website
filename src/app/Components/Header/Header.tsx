@@ -68,7 +68,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
     <>
       <header className={`${getHeaderBackground()} fixed z-50 w-full font-[family-name:var(--font-poppins)] transition-colors duration-500`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-24">
-          <div className="flex justify-between items-center h-20">
+          <div className="flex justify-between items-center h-18">
             <div className="flex items-center">
               <div className="w-28 flex h-full items-center justify-center cursor-pointer" onClick={() => router.push('/')}>
                 <Image
