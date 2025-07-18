@@ -15,7 +15,7 @@ const Consulting: React.FC = () => {
   ];
 
   return (
-    <div className="relative w-full max-w-4xl mx-auto  overflow-visible">
+    <div className="relative w-full max-w-4xl mx-auto  mt-10 overflow-visible">
       <div className="absolute -top-1 left-4 w-[90%] h-[105%] md:h-[105%] xl:h-96 z-0 overflow-hidden shadow-xl">
         <Image
           src="/Consulting/background.png"

@@ -140,20 +140,60 @@ const LearningEdge: React.FC = () => {
     );
   };
 
-  useEffect(() => {
-    if (!isMobile) return;
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setActiveIndex((prevIndex) =>
+  //       prevIndex === categories.length - 1 ? 0 : prevIndex + 1
+  //     );
+  //   }, 5000);
 
-    const interval = setInterval(() => {
+  //   return () => clearInterval(interval);
+  // }, []);
+
+const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
+
+  useEffect(() => {
+  const startAutoSlide = () => {
+    intervalRef.current = setInterval(() => {
       setActiveIndex((prevIndex) =>
         prevIndex === categories.length - 1 ? 0 : prevIndex + 1
       );
     }, 5000);
+  };
 
-    return () => clearInterval(interval);
-  }, [isMobile]);
+  startAutoSlide();
+
+  return () => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+  };
+}, []);
+
+
+const handleMouseEnter = () => {
+  if (intervalRef.current) {
+    clearInterval(intervalRef.current);
+  }
+};
+
+const handleMouseLeave = () => {
+  intervalRef.current = setInterval(() => {
+    setActiveIndex((prevIndex) =>
+      prevIndex === categories.length - 1 ? 0 : prevIndex + 1
+    );
+  }, 5000);
+};
+
+
+
 
   return (
-    <div className="flex h-full justify-center w-full gap-4 overflow-visible py-8 relative z-20">
+   <div
+  className="flex h-full justify-center w-full gap-4 overflow-visible py-8 relative z-20 mt-10"
+  onMouseEnter={handleMouseEnter}
+  onMouseLeave={handleMouseLeave}
+>
+
       <svg width="0" height="0">
         <defs>
           <clipPath id="smoothCurveClip" clipPathUnits="objectBoundingBox">

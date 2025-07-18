@@ -104,7 +104,7 @@ const products: Product[] = [
   },
 ];
 
-const AUTO_SLIDE_INTERVAL = 5000; // 5 seconds
+const AUTO_SLIDE_INTERVAL = 2000;
 
 const Products: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -145,10 +145,10 @@ const Products: React.FC = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center text-black w-full px-4 md:px-10 mb-10">
-      <p className="text-center text-2xl md:text-3xl font-semibold mb-4">
+    <div className="flex flex-col items-center text-black w-full mt-20 px-4 md:px-10 mb-10">
+      {/* <p className="text-center text-2xl md:text-3xl font-semibold mb-4">
         {products[activeIndex].title}
-      </p>
+      </p> */}
 
       <div className="flex flex-row justify-center items-center gap-4 w-full">
         <button
