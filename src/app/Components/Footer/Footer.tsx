@@ -16,15 +16,15 @@ const Footer = () => {
           />
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-sm">
-          <div>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 text-sm">
+          {/* <div>
             <h3 className="font-semibold mb-2">Index</h3>
             <ul className="space-y-1 text-gray-300">
               <li><a href="#">Our Story</a></li>
               <li><a href="#">Our Presence</a></li>
               <li><a href="#">Career</a></li>
             </ul>
-          </div>
+          </div> */}
 
           <div>
             <h3 className="font-semibold mb-2">Resources</h3>

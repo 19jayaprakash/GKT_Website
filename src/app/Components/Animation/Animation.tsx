@@ -8,7 +8,7 @@ import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 interface Props {
-  children: any;
+  children: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
 }

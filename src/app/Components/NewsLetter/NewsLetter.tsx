@@ -9,6 +9,7 @@ import {
   useSpring,
 } from "framer-motion";
 import Image from "next/image";
+import { MotionStyle } from "framer-motion";
  
 const Newsletter = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -79,7 +80,7 @@ const Newsletter = () => {
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [isScrollComplete]);
+  }, [isScrollComplete,images.length]);
  
   return (
     <section
@@ -142,14 +143,14 @@ const Newsletter = () => {
               x: smoothX,
               y: smoothY,
               width: smoothwidth,
-            } as any
+            } as MotionStyle
           }
           className={`relative  h-screen origin-center rounded-4xl `}
         >
           {!isMobile && (
             <motion.div
               className="w-fit"
-              style={{ opacity: abstractopacity } as any}
+              style={{ opacity: abstractopacity } as MotionStyle}
             >
               <Image
                 src="/abstract.svg"

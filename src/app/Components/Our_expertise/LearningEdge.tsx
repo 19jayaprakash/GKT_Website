@@ -1,6 +1,4 @@
 "use client";
-
-import { ArrowUpRightIcon } from "lucide-react";
 import Image from "next/image";
 import React, { useState, useEffect, useRef } from "react";
 import { CiCircleChevLeft, CiCircleChevRight } from "react-icons/ci";
@@ -33,7 +31,7 @@ const categories: Category[] = [
     Description: [
       {
         content:
-          "We hook up enterprises and pros with next-gen skills, cutting-edge tech programs, and OEM-certified training that flex and flow with your journey.",
+          "We hook up enterprises and pros with next-gen skills, cutting-edge tech programs, and OEM-certified training that flex and flow with your journey. Our support, expertise, and innovative tools fuel your journey—empowering you to grow, stay current, and lead the way in a fast-changing world",
         keyPoints: [],
       },
     ],
@@ -48,14 +46,8 @@ const categories: Category[] = [
     sub_heading: "A Catalyst for Employability, Industry Relevance & Growth.",
     Description: [
       {
-        content: "",
+        content: "We empower universities and colleges with globally recognized certifications, AI-driven academic programs, and transformative curriculum innovation—cultivating academic distinction, elevating institutional branding, and equipping students to excel as leaders in an ever-evolving global landscape. ",
         keyPoints: [
-          "Alliance: We forge dynamic partnerships with colleges.",
-          "Project Support: We provide expert project support.",
-          "Global Certification: Industry-aligned certifications.",
-          "AI Lab Setup: State-of-the-art AI labs.",
-          "Future-Ready Skills: Hands-on industry training.",
-          "Career Catalyst: Strengthen your skills.",
         ],
       },
     ],
@@ -70,15 +62,8 @@ const categories: Category[] = [
     sub_heading: "Your Launchpad for Learning, Creativity & Lifelong Skills.",
     Description: [
       {
-        content: "",
+        content: "We partner with educational institutions to offer tailored academic programs, industry-recognized certifications, and comprehensive student development initiatives—enhancing academic quality, empowering educators, and preparing students for success in a competitive world.",
         keyPoints: [
-          "Learn & Create! Dive into exciting lessons and build amazing things.",
-          "Fun, Hands-On: Get ready for cool activities where you learn by doing.",
-          "AI that grows with you: Explore Artificial Intelligence with lessons that evolve as you do.",
-          "Code, play, create: Learn to code, play with ideas, and bring your creations to life.",
-          "Be an AI thinker: Discover how AI works and learn to think like a smart inventor.",
-          "iScience: Jump into the world of Artificial Intelligence with us.",
-          "Learn cool tech: Explore exciting topics like social media, cloud, and cybersecurity.",
         ],
       },
     ],
@@ -88,8 +73,8 @@ const categories: Category[] = [
   },
   {
     type: "Government",
-    heading: "Igniting Young Minds. Building Brighter Futures.",
-    sub_heading: "Your Launchpad for Learning, Creativity & Lifelong Skills.",
+    heading: "",
+    sub_heading: "",
     Description: [
       {
         content: "",
@@ -102,17 +87,16 @@ const categories: Category[] = [
   },
 ];
 
-const logos: Logo[] = [
-  {
-    image: "/Service_images/gc.png",
-    url: "https://cloud.google.com/",
-  },
-  // },
-  // {
-  //   image: "/Service_images/ibm.png",
-  //   url: "https://gkcloud.ai/",
-  // },
-];
+// const logos: Logo[] = [
+//   {
+//     image: "/Service_images/gc.png",
+//     url: "https://cloud.google.com/",
+//   },
+//   {
+//     image: "/Service_images/ibm.png",
+//     url: "https://gkcloud.ai/",
+//   },
+// ];
 
 const LearningEdge: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -248,7 +232,7 @@ const handleMouseLeave = () => {
               </div>
 
               <div className="ml-8 p-2">
-                {activeIndex === 0 && (
+                {/* {activeIndex === 0 && (
                   <>
                     <p className="text-sm opacity-70">Ready to stay ahead?</p>
                     <div className="flex flex-col items-start gap-1 mt-1">
@@ -258,7 +242,7 @@ const handleMouseLeave = () => {
                       </div>
                     </div>
                   </>
-                )}
+                )} */}
 
                 <div className="flex flex-col items-start gap-1 mt-3">
                   <p className="text-white text-sm">
@@ -330,7 +314,7 @@ const handleMouseLeave = () => {
                         {categories[activeIndex].Description.map((desc, i) => (
                           <div key={i}>
                             {desc.content && (
-                              <p className="text-xs opacity-80 w-96 mb-2">
+                              <p className="text-xs opacity-80 w-full text-justify mb-2">
                                 {desc.content}
                               </p>
                             )}
@@ -347,7 +331,7 @@ const handleMouseLeave = () => {
                         ))}
                       </div>
                       <div>
-                        {activeIndex == 0 && (
+                        {/* {activeIndex == 0 && (
                           <>
                             <p className="text-sm opacity-70">
                               Ready to stay ahead?
@@ -359,7 +343,7 @@ const handleMouseLeave = () => {
                               </div>
                             </div>
                           </>
-                        )}
+                        )} */}
 
                         <div className="flex flex-col items-start gap-1 mt-6">
                           <p className="text-white text-sm">

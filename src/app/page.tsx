@@ -6,9 +6,10 @@ import Header from "./Components/Header/Header";
 import Network from "./Components/Our_network/Network";
 import Clients from "./Components/Our_clients/Clients";
 import Footer from "./Components/Footer/Footer";
-import Prolearn from './Components/Prolearn/Prolearn'
+import Prolearn from "./Components/Prolearn/Prolearn";
 import { useState, useEffect, useRef } from "react";
 import Newsletter from "./Components/NewsLetter/NewsLetter";
+import Image from "next/image";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("home");
@@ -66,21 +67,29 @@ export default function Home() {
               <ExpertiseScroll />
             </div>
             <div>
-              <Prolearn/>
+              <Prolearn />
             </div>
             <div ref={networkRef}>
               <Network />
             </div>
-            <div ref={clientsRef} >
+            <div ref={clientsRef}>
               <Clients />
             </div>
-            <div >
-              <Newsletter/>
+            <div>
+              <Newsletter />
             </div>
           </div>
         </div>
       </ParallaxProvider>
       <Footer />
+
+      <Image
+        src={"/stu.png"}
+        alt={"stu"}
+        width={150}
+        height={70}
+        className="fixed z-50 bottom-0 right-0"
+      />
     </>
   );
 }

@@ -33,7 +33,7 @@ const AUTO_SLIDE_INTERVAL = 2000;
 const Products: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [progress, setProgress] = useState(0);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  // const timerRef = useRef<NodeJS.Timeout | null>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   const nextSlide = () => {

@@ -183,7 +183,7 @@ const Clients: React.FC = () => {
   const repeatedLogos = [...logos, ...logos];
 
   return (
-    <div className="bg-[#F6F6F9] w-full py-16 overflow-hidden">
+    <div className="bg-[#F6F6F9] w-full py-1 overflow-hidden">
       <p className="text-2xl font-bold text-center text-[#003663] mb-10">Our Clients</p>
 
       <div className="w-full relative overflow-hidden mb-10">

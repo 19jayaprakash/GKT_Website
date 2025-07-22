@@ -13,7 +13,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
-import Header from "../Header/Header";
+// import Header from "../Header/Header";
 
 const images = [
   {
@@ -22,6 +22,7 @@ const images = [
     height: 140,
     width: 150,
     justify: "end",
+    value:"odd"
   },
   {
     src: "/spotlight/img2.png",
@@ -29,6 +30,8 @@ const images = [
     height: 150,
     width: 220,
     justify: "start",
+        value:"even"
+
   },
   {
     src: "/video/ai.mp4",
@@ -36,6 +39,7 @@ const images = [
     height: 300,
     width: 500,
     justify: "center",
+        value:""
   },
   {
     src: "/spotlight/img3.png",
@@ -43,6 +47,8 @@ const images = [
     height: 150,
     width: 270,
     justify: "end",
+        value:"odd"
+
   },
   {
     src: "/spotlight/img4.png",
@@ -50,6 +56,8 @@ const images = [
     height: 150,
     width: 150,
     justify: "start",
+        value:"even"
+
   },
 ];
 
@@ -154,7 +162,7 @@ const Spotlight:React.FC = () => {
                   src={image.src}
                   width={image.width}
                   height={image.height}
-                  className="rounded-2xl"
+                  className="rounded-2xl absolute z-20 shadow-2xl"
                   autoPlay
                   muted
                   loop
@@ -176,7 +184,9 @@ const Spotlight:React.FC = () => {
                   width: `${image.width}px`,
                   height: `${image.height}px`,
                 }}
-                className="rounded-2xl"
+                // className={`rounded-2xl absolute z-10 ${image.value == "even" ? "-ml-10" : "ml-10"}`}
+                 className={`rounded-2xl`}
+
               />
                 )
               }
