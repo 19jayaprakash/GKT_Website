@@ -17,7 +17,7 @@ export default function Home() {
   const homeRef = useRef<HTMLDivElement>(null);
   const expertiseRef = useRef<HTMLDivElement>(null);
   const networkRef = useRef<HTMLDivElement>(null);
-  const clientsRef = useRef<HTMLDivElement>(null);
+  const clientsRef = useRef<HTMLDivElement>(null); 
 
   useEffect(() => {
     const handleScroll = () => {
@@ -52,6 +52,7 @@ export default function Home() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [activeSection]);
+  
 
   return (
     <>
@@ -61,7 +62,7 @@ export default function Home() {
           <div className="sticky top-0 z-20 min-h-screen" ref={homeRef}>
             <Spotlight />
           </div>
-          <div className="h-[10vh]" />
+          <div className="h-[20vh]" />
           <div className="relative z-30 w-full">
             <div ref={expertiseRef}>
               <ExpertiseScroll />
@@ -86,10 +87,12 @@ export default function Home() {
       <Image
         src={"/stu.png"}
         alt={"stu"}
-        width={150}
+        width={180}
         height={70}
-        className="fixed z-50 bottom-0 right-0"
+        className="fixed z-50 bottom-0 right-0 cursor-pointer"
       />
     </>
   );
 }
+
+

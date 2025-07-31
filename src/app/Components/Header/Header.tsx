@@ -74,15 +74,15 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
                 <Image
                   src={'/gkt_light.png'}
                   alt="My Logo"
-                  width={400}
-                  height={80}
+                  width={300}
+                  height={70}
                 />
               </div>
             </div>
 
             <nav className={`hidden md:flex w-full justify-end space-x-8 ${isSearchOpen ? 'md:hidden lg:flex' : ''}`}>
               {['Our story', 'Our presence', 'Career'].map((text) => (
-                <a key={text} href="#" className="text-white px-3 py-2 text-sm font-medium hover:text-gray-300">
+                <a key={text} href="#" className="text-gray-400 px-3 py-2 text-sm font-normal hover:text-gray-300">
                   {text}
                 </a>
               ))}
@@ -135,7 +135,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
               </button>
 
               <div className="bg-black cursor-pointer">
-                <select defaultValue={'IND'} className="bg-black text-white cursor-pointer">
+                <select defaultValue={'IND'} className="bg-black text-gray-400 cursor-pointer">
                   <option value="IND" className='cursor-pointer'>IND</option>
                   <option value="SGP" className='cursor-pointer'>SGP</option>
                   <option value="UAE" className='cursor-pointer'>UAE</option>

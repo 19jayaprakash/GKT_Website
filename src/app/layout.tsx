@@ -21,7 +21,7 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: "Global Knowledge Technologies",
+  title: "IT Courses with certification - Global Knowledge Technologies",
   description: "",
 };
 

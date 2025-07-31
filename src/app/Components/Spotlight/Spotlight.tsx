@@ -70,7 +70,7 @@ interface Content {
 
 const Contents: Content[]=[
   {
-    title:"Learning designed for you, success designed by you.",
+    title:"Learning designed for you, success designed by you",
     content:"Get training tailored to YOU—level up fast, flex your skills, and turn your goals into straight-up wins. Prepared to succeed? Let's get started.",
   },
    {
@@ -84,7 +84,7 @@ const Contents: Content[]=[
 ]
 
 const Spotlight:React.FC = () => {
-      const [isMobile, setIsMobile] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
     const [activeIndex , setActiveIndex]=useState(0);
 
    
@@ -114,12 +114,12 @@ const Spotlight:React.FC = () => {
   return (
     <>
       {/* <Header/> */}
-       <section className="bg-black text-white py-20 flex flex-col min-h-screen justify-center items-center">
+       <section className="bg-black text-white py-32 flex flex-col min-h-screen justify-center items-center">
       <div className="flex flex-col justify-center items-center w-full text-center">
-        <h2 className="text-xl md:text-2xl font-medium transition-all transform ease-in duration-700">
+        <h2 className="text-xl md:text-xl font-medium transition-all transform ease-in duration-700">
           {Contents[activeIndex].title}
         </h2>
-        <p className="text-gray-400 text-base opacity-50 md:text-lg mt-2 w-10/12">
+        <p className="text-gray-400 text-base opacity-50 md:text-sm mt-2 w-8/12">
           {Contents[activeIndex].content}
         </p>
       </div>

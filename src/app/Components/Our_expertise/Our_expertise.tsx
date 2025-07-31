@@ -6,9 +6,9 @@ import Consulting from "./Consulting";
 import TextReveal from "../Animation/Animation";
  
 const sections = [
-  { title: "GKT Learning Edge" },
-  { title: "Consulting & Outsourcing" },
-  { title: "Products" },
+  { title: "GKT Learning Edge",content:"Empowering Growth, Innovation, Resilience" },
+  { title: "Consulting & Outsourcing",content:"Unlocking Growth with Future-Ready IT Solutions" },
+  { title: "Products",content:"Your Edge in a Rapidly Evolving Digital World" },
 ];
  
 export default function ExpertiseScroll() {
@@ -119,10 +119,10 @@ useEffect(() => {
       <div
         className={`
           ${isMobile ? "w-full px-4 pt-6 flex flex-col" : "flex-col p-14 w-[26%] h-screen"}
-          flex sticky top-0 bg-[#F6F6F9] z-30 rounded-t-4xl
+          flex sticky top-6 bg-[#F6F6F9] z-30 rounded-t-4xl
         `}
       >
-        <div className="w-full text-center mb-4 md:mb-5 mt-4">
+        <div className="w-full text-center mb-4 md:mb-10 mt-4">
           <p className="text-2xl md:text-3xl text-center md:text-start font-bold text-[#004781]">
             Our <br />
             Expertise
@@ -153,7 +153,7 @@ useEffect(() => {
         ) : (
           <>
             {sections.map((item, index) => (
-              <div key={index} className="mb-6 transition-all w-full">
+              <div key={index} className="mb-5 transition-all w-full">
                 <div
                   className={`text-5xl font-medium ${
                     activeIndex === index ? "text-black" : "text-gray-300"
@@ -169,12 +169,13 @@ useEffect(() => {
                   <TextReveal>{item.title}</TextReveal>
                 </div>
                 <div
-                  className={`text-sm ${
+                  className={`text-xs ${
                     activeIndex === index ? "text-gray-600" : "text-gray-300"
                   }`}
                 >
                   <TextReveal>
-                    Empower students with cutting-edge skills for career
+                    {/* Empower students with cutting-edge skills for career */}
+                    {item.content}
                   </TextReveal>
                 </div>
               </div>

@@ -25,7 +25,7 @@ interface Logo {
 
 const categories: Category[] = [
   {
-    type: "Enterprise",
+    type: "Business/individual",
     heading: "Accelerating Growth. Empowering Expertise",
     sub_heading: "Your go-to power-up for Growth, Innovation & Resilience.",
     Description: [
@@ -41,7 +41,7 @@ const categories: Category[] = [
       "Let’s discover, empower, and elevate your expertise together for a future that shines bright!",
   },
   {
-    type: "Academic",
+    type: "Universities/colleges",
     heading: "Shaping Futures. Empowering Careers.",
     sub_heading: "A Catalyst for Employability, Industry Relevance & Growth.",
     Description: [
@@ -57,7 +57,7 @@ const categories: Category[] = [
     answer: "Let’s collaborate to create impactful learning experiences!",
   },
   {
-    type: "Customer",
+    type: "Schools",
     heading: "Igniting Young Minds. Building Brighter Futures.",
     sub_heading: "Your Launchpad for Learning, Creativity & Lifelong Skills.",
     Description: [
@@ -314,7 +314,7 @@ const handleMouseLeave = () => {
                         {categories[activeIndex].Description.map((desc, i) => (
                           <div key={i}>
                             {desc.content && (
-                              <p className="text-xs opacity-80 w-full text-justify mb-2">
+                              <p className="text-xs opacity-80 w-11/12 text-justify mb-2">
                                 {desc.content}
                               </p>
                             )}
@@ -356,26 +356,49 @@ const handleMouseLeave = () => {
                       </div>
                     </div>
                   ) : (
-                    <div
-                      className="h-full w-full text-white "
-                      style={{
-                        backgroundImage: `url(${category.image})`,
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                      }}
-                    >
-                      <div className=" flex flex-col  backdrop-blur-xl h-full w-full justify-between  items-center p-4">
-                        <div className="transform rotate-90 flex items-center gap-2 text-sm mt-10">
-                          <span>{category.type}</span>
-                        </div>
-                        <Image
-                          src={"/Service_images/Plus_icon.png"}
-                          alt="icon"
-                          height={12}
-                          width={30}
-                        />
-                      </div>
-                    </div>
+                    // <div
+                    //   className="h-full w-full text-white "
+                    //   style={{
+                    //     backgroundImage: `url(${category.image})`,
+                    //     backgroundSize: "cover",
+                    //     backgroundPosition: "center",
+                    //   }}
+                    // >
+                    //   <div className=" flex flex-col  backdrop-blur-xl h-full w-full justify-between  items-center p-4">
+                    //     <div className="transform rotate-90 flex items-center gap-2 text-sm mt-12">
+                    //       <span>{category.type}</span>
+                    //     </div>
+                    //     <Image
+                    //       src={"/Service_images/Plus_icon.png"}
+                    //       alt="icon"
+                    //       height={12}
+                    //       width={30}
+                    //     />
+                    //   </div>
+                    // </div>
+
+                   <div
+  className="h-full w-full text-white"
+  style={{
+    backgroundImage: `url(${category.image})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }}
+>
+  <div className="flex flex-col backdrop-blur-xl h-full w-full justify-between items-center p-4">
+    <div className="transform rotate-90 text-sm mt-16 whitespace-nowrap">
+      <span>{category.type}</span>
+    </div>
+
+    <Image
+      src="/Service_images/Plus_icon.png"
+      alt="icon"
+      height={12}
+      width={30}
+    />
+  </div>
+</div>
+
                   )}
                 </div>
               </div>
