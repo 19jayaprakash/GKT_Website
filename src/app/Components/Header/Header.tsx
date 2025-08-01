@@ -81,7 +81,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
             </div>
 
             <nav className={`hidden md:flex w-full justify-end space-x-8 ${isSearchOpen ? 'md:hidden lg:flex' : ''}`}>
-              {['Our story', 'Our presence', 'Career'].map((text) => (
+              {['Our story', 'Our programs', 'Career'].map((text) => (
                 <a key={text} href="#" className="text-gray-400 px-3 py-2 text-sm font-normal hover:text-gray-300">
                   {text}
                 </a>

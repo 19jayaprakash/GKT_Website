@@ -5,16 +5,16 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white px-6 py-10 md:py-16">
+    <footer className="bg-black text-white px-6 py-10 md:py-10">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-10">
-        <div className="flex-shrink-0 ml-0 md:ml-10 xl:ml-10">
+        {/* <div className="flex-shrink-0 ml-0 md:ml-10 xl:ml-10">
           <Image
             src="/gkt_light.png" 
             alt="Global Knowledge"
             width={200}
             height={100}
           />
-        </div>
+        </div> */}
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-8 text-sm">
           {/* <div>

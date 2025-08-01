@@ -119,7 +119,7 @@ const Spotlight:React.FC = () => {
         <h2 className="text-xl md:text-xl font-medium transition-all transform ease-in duration-700">
           {Contents[activeIndex].title}
         </h2>
-        <p className="text-gray-400 text-base opacity-50 md:text-sm mt-2 w-8/12">
+        <p className="text-gray-200 text-base opacity-50 md:text-sm mt-2 w-8/12">
           {Contents[activeIndex].content}
         </p>
       </div>

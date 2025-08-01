@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { FaArrowCircleRight } from "react-icons/fa";
+import { motion } from "framer-motion";
 
  
 interface FAQItem {
@@ -65,17 +66,22 @@ const FAQSection : React.FC = () => {
   };
  
   return (
-    <div className="mx-auto px-4 sm:px-6 lg:px-8 py-4 grid md:grid-cols-2 gap-8 items-center bg-[#F6F6F9] text-gray-800">
+    <motion.div
+     initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }} 
+    className="mx-auto px-4 sm:px-6 lg:px-8 py-4 grid md:grid-cols-2 gap-8 items-center bg-[#F6F6F9] text-gray-800">
       <div className=" space-y-8 z-10">
         <div>
           <h4 className="flex items-center text-xl pb-4">
             <FaArrowCircleRight className="pr-2 text-2xl" />
             FAQ
           </h4>
-          <h2 className="text-3xl md:text-4xl font-semibold mb-4">
+          <h2 className="text-3xl md:text-xl font-semibold mb-4">
             Explore Common Queries
           </h2>
-          <p className="text-gray-800 leading-relaxed text-justify">
+          <p className="text-gray-800 text-sm leading-relaxed text-justify">
             {FAQ.description}
           </p>
         </div>
@@ -116,7 +122,7 @@ const FAQSection : React.FC = () => {
           <p className="text-gray-400">No FAQs available at this time.</p>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
  
