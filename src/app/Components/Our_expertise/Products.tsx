@@ -19,7 +19,7 @@ const products: Product[] = [
   {
     title: "VivaahAI",
     content: "hello",
-    image: "/Products/vivaahai_bg.jpg",
+    image: "/Products/vivaaha.png",
   },
   {
     title: "Stu",

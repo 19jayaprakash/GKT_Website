@@ -14,20 +14,17 @@ const sections = [
 export default function ExpertiseScroll() {
   const [activeIndex, setActiveIndex] = useState(0);
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const scrollLock = useRef(false); // to prevent rapid scrolling
+  const scrollLock = useRef(false); 
   const [isInView, setIsInView] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-    const hasInitialized = useRef(false); // Track if component has been initialized
+    const hasInitialized = useRef(false); 
  
- 
-// Intersection Observer to detect when component is in view
-useEffect(() => {
+ useEffect(() => {
   const observer = new IntersectionObserver(
     ([entry]) => {
       if (entry.isIntersecting) {
        
         setIsInView(true);
-        // Immediately scroll to first section and set active index
         if(!hasInitialized.current){
         setTimeout(() => {
           if (sectionRefs.current[0]) {
@@ -43,7 +40,7 @@ useEffect(() => {
     },
    {
   threshold: 1,
-  rootMargin: "1000px" // Triggers earlier/later by 200px
+  rootMargin: "1000px" 
 }
  
   );
@@ -57,18 +54,12 @@ useEffect(() => {
       observer.unobserve(containerRef.current);
     }
   };
-}, []);
- 
- 
- 
- 
- 
-  // Handle wheel scroll to jump to next/previous section
-  useEffect(() => {
-    const handleWheel = (e: WheelEvent) => {
-      console.log(scrollLock.current, isInView);
- 
-      if (scrollLock.current || !isInView) return; // Only work when component is in view
+},[]);
+
+useEffect(() => {
+const handleWheel = (e: WheelEvent) => {
+
+      if (scrollLock.current || !isInView) return; 
  
       scrollLock.current = true;
      
@@ -79,18 +70,15 @@ useEffect(() => {
         sectionRefs.current[nextIndex]?.scrollIntoView({ behavior: "smooth" });
         setActiveIndex(nextIndex);
        
- 
       } else if(e.deltaY < 0 && activeIndex > 0) {
-        // Scroll Up
         const prevIndex = activeIndex - 1;
         sectionRefs.current[prevIndex]?.scrollIntoView({ behavior: "smooth" });
         setActiveIndex(prevIndex);
       }
  
-      // Debounce scroll
       setTimeout(() => {
         scrollLock.current = false;
-      }, 1000); // Adjust timing as needed
+      }, 1000); 
     };
  
     window.addEventListener("wheel", handleWheel, { passive: false });
@@ -100,7 +88,6 @@ useEffect(() => {
     };
   }, [activeIndex, isInView]);
  
-  // Mobile detection
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     const handleResize = () => {
@@ -110,7 +97,6 @@ useEffect(() => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
- 
   return (
     <div
       ref={containerRef}
@@ -138,7 +124,7 @@ useEffect(() => {
                   activeIndex === index
                     ? "bg-black text-white"
                     : "bg-gray-100 text-gray-500"
-                }`}
+                }`}               
                 onClick={() => {
                   sectionRefs.current[index]?.scrollIntoView({
                     behavior: "smooth",
