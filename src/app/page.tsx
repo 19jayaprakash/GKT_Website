@@ -84,13 +84,13 @@ export default function Home() {
       </ParallaxProvider>
       <Footer />
 
-      <Image
+      {/* <Image
         src={"/stu.png"}
         alt={"stu"}
         width={180}
         height={70}
         className="fixed z-50 bottom-0 right-0 cursor-pointer"
-      />
+      /> */}
     </>
   );
 }
