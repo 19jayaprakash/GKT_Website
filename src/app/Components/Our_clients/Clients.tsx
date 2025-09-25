@@ -211,11 +211,11 @@ const Clients: React.FC = () => {
             transform: translateX(0);
           }
           100% {
-            transform: translateX(-50%);
+            transform: translateX(-100%);
           }
         }
         .animate-slide {
-          animation: slide 25s linear infinite;
+          animation: slide 15s linear infinite;
         }
       `}</style>
     </div>

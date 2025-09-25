@@ -114,18 +114,17 @@ const Spotlight:React.FC = () => {
   return (
     <>
       {/* <Header/> */}
-       <section className="bg-black text-white py-32 flex flex-col min-h-screen justify-center items-center">
+       <section className="bg-black text-white py-32 flex flex-col min-h-screen overflow-hidden justify-center items-center">
       <div className="flex flex-col justify-center items-center w-full text-center">
         <h2 className="text-xl md:text-xl font-medium transition-all transform ease-in duration-700">
           {Contents[activeIndex].title}
         </h2>
-        <p className="text-gray-200 text-base opacity-50 md:text-sm mt-2 w-8/12">
+        <p className="text-gray-200 text-base opacity-50 md:text-sm mt-2 w-10/12 md:w-8/12 ">
           {Contents[activeIndex].content}
         </p>
       </div>
-
       <div
-        className="grid gap-6 w-auto"
+   className="grid gap-6 w-auto "
         style={{
           display: "grid",
           gridTemplateAreas: `
@@ -141,7 +140,7 @@ const Spotlight:React.FC = () => {
             key={index}
             className={`${
               image.area !== "main" ? "hidden md:flex" : "flex mt-52"
-            } justify-${image.justify} items-end mt-[2px] md:mt-[20px] xl:mt-[5px] w-60 md:w-60 xl:w-auto`}
+            } justify-${image.justify} items-end mt-[2px] md:mt-[20px]  xl:mt-[5px]   hover:scale-105 cursor-pointer transition duration-400 xl:w-auto`}
             style={{ gridArea: image.area }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -150,8 +149,8 @@ const Spotlight:React.FC = () => {
           >
             <div
               style={{
-                width: `${image.area == "main" && isMobile ? image.width - 200 : image.width}px`,
-                height: `${isMobile ? image.height +50 :image.height +10}px`,
+                width: `${image.area == "main" && isMobile ? image.width - 100 : image.width}px`,
+                height: `${isMobile ? image.height + 150 :image.height + 10}px`,
                 position: "relative",
                 marginTop:`${isMobile ? "40px":""}`
               }}

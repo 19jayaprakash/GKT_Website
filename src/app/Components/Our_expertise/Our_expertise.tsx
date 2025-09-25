@@ -6,7 +6,7 @@ import Consulting from "./Consulting";
 import TextReveal from "../Animation/Animation";
  
 const sections = [
-  { title: "GKT Learning Edge",content:"Empowering Growth, Innovation, Resilience" },
+  { title: "Learning Edge",content:"Empowering Growth, Innovation, Resilience" },
   { title: "Consulting & Outsourcing",content:"Unlocking Growth with Future-Ready IT Solutions" },
   { title: "Products",content:"Your Edge in a Rapidly Evolving Digital World" },
 ];
@@ -14,20 +14,17 @@ const sections = [
 export default function ExpertiseScroll() {
   const [activeIndex, setActiveIndex] = useState(0);
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const scrollLock = useRef(false); // to prevent rapid scrolling
+  const scrollLock = useRef(false); 
   const [isInView, setIsInView] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-    const hasInitialized = useRef(false); // Track if component has been initialized
+    const hasInitialized = useRef(false); 
  
- 
-// Intersection Observer to detect when component is in view
-useEffect(() => {
+ useEffect(() => {
   const observer = new IntersectionObserver(
     ([entry]) => {
       if (entry.isIntersecting) {
        
         setIsInView(true);
-        // Immediately scroll to first section and set active index
         if(!hasInitialized.current){
         setTimeout(() => {
           if (sectionRefs.current[0]) {
@@ -43,7 +40,7 @@ useEffect(() => {
     },
    {
   threshold: 1,
-  rootMargin: "1000px" // Triggers earlier/later by 200px
+  rootMargin: "1000px" 
 }
  
   );
@@ -57,18 +54,12 @@ useEffect(() => {
       observer.unobserve(containerRef.current);
     }
   };
-}, []);
- 
- 
- 
- 
- 
-  // Handle wheel scroll to jump to next/previous section
-  useEffect(() => {
-    const handleWheel = (e: WheelEvent) => {
-      console.log(scrollLock.current, isInView);
- 
-      if (scrollLock.current || !isInView) return; // Only work when component is in view
+},[]);
+
+useEffect(() => {
+const handleWheel = (e: WheelEvent) => {
+
+      if (scrollLock.current || !isInView) return; 
  
       scrollLock.current = true;
      
@@ -79,18 +70,15 @@ useEffect(() => {
         sectionRefs.current[nextIndex]?.scrollIntoView({ behavior: "smooth" });
         setActiveIndex(nextIndex);
        
- 
       } else if(e.deltaY < 0 && activeIndex > 0) {
-        // Scroll Up
         const prevIndex = activeIndex - 1;
         sectionRefs.current[prevIndex]?.scrollIntoView({ behavior: "smooth" });
         setActiveIndex(prevIndex);
       }
  
-      // Debounce scroll
       setTimeout(() => {
         scrollLock.current = false;
-      }, 1000); // Adjust timing as needed
+      }, 1000); 
     };
  
     window.addEventListener("wheel", handleWheel, { passive: false });
@@ -100,7 +88,6 @@ useEffect(() => {
     };
   }, [activeIndex, isInView]);
  
-  // Mobile detection
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     const handleResize = () => {
@@ -110,7 +97,6 @@ useEffect(() => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
- 
   return (
     <div
       ref={containerRef}
@@ -119,7 +105,7 @@ useEffect(() => {
       <div
         className={`
           ${isMobile ? "w-full px-4 pt-6 flex flex-col" : "flex-col p-14 w-[26%] h-screen"}
-          flex sticky top-6 bg-[#F6F6F9] z-30 rounded-t-4xl
+          flex sticky top-16 bg-[#F6F6F9] z-30 rounded-t-4xl
         `}
       >
         <div className="w-full text-center mb-4 md:mb-10 mt-4">
@@ -137,8 +123,8 @@ useEffect(() => {
                 className={`flex-shrink-0 px-2 py-2 text-xs font-medium rounded-full transition-all whitespace-nowrap ${
                   activeIndex === index
                     ? "bg-black text-white"
-                    : "bg-gray-100 text-gray-500"
-                }`}
+                    : "bg-white text-gray-500  shadow-2xl rounded-2xl"
+                }`}                
                 onClick={() => {
                   sectionRefs.current[index]?.scrollIntoView({
                     behavior: "smooth",
@@ -184,10 +170,10 @@ useEffect(() => {
         )}
       </div>
  
-      <div className="w-full md:w-[75%]">
+      <div className="w-full md:w-[75%] ">
         <div
           ref={(el) => {sectionRefs.current[0] = el}}
-          className="flex items-center justify-center p-4 min-h-screen"
+          className="flex items-center justify-center p-4  min-h-screen"
         >
           <LearningEdge />
         </div>

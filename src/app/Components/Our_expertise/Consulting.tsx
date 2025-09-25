@@ -15,19 +15,19 @@ const Consulting: React.FC = () => {
   ];
 
   return (
-    <div className="relative w-full max-w-4xl mx-auto  mt-10 overflow-visible">
-      <div className="absolute -top-1 left-4 w-[90%] h-[105%] md:h-[105%] xl:h-96 z-0 overflow-hidden shadow-xl">
+    <div className="relative w-full max-w-4xl  flex justify-center items-center mx-auto  mt-40 mt-10 overflow-visible">
+      <div className="absolute  w-[90%] h-[100%] md:h-[105%] xl:h-96 z-0 overflow-hidden shadow-xl rounded-3xl">
         <Image
           src="/Consulting/background.png"
           alt="Background"
           fill
-          className="object-cover"
+          className="object-cover rounded-3xl"
           priority
         />
       </div>
 
-      <div className="relative z-10 ml-10 -mt-5 bg-black/50 backdrop-blur-2xl p-12 shadow-lg text-white w-[90%]">
-        <h2 className="text-xl md:text-3xl xl:text-3xl font-bold text-[#94ACFF] mb-6">
+      <div className="relative z-10  bg-gradient-to-br from-white to-transparent backdrop-blur-xl rounded-3xl p-14 shadow-lg text-black w-[90%]">
+        <h2 className="text-xl md:text-3xl xl:text-3xl font-bold text-[#004781] mb-6">
           Consulting & Outsourcing
         </h2>
 
@@ -38,10 +38,10 @@ const Consulting: React.FC = () => {
               className="flex items-start text-sm md:text-md xl:text-md"
             >
               <Check
-                className="text-[#94ACFF] mt-1 mr-3 flex-shrink-0"
+                className="text-[#004781] mt-1 mr-3 flex-shrink-0"
                 size={20}
               />
-              <span>{content}</span>
+              <span className="text-[#484848]">{content}</span>
             </div>
           ))}
         </div>

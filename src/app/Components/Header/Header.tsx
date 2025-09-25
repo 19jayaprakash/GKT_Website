@@ -329,13 +329,13 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
                 onMouseEnter={() => setIsProgramsDropdownOpen(true)}
                 onMouseLeave={() => setIsProgramsDropdownOpen(false)}
               >
-                <button className=" px-3 py-2 text-sm font-normal hover:text-gray-300 flex items-center space-x-1">
+                <button className=" px-3 cursor-pointer py-2 text-sm font-normal hover:text-gray-300 flex items-center space-x-1">
                   <span>Our programs</span>
-                  <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isProgramsDropdownOpen ? 'rotate-180' : ''}`} />
+                  {/* <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isProgramsDropdownOpen ? 'rotate-180' : ''}`} /> */}
                 </button>
                 
                 {/* Dropdown Menu */}
-                {isProgramsDropdownOpen && (
+                {/* {isProgramsDropdownOpen && (
                   <div className="absolute top-full left-0 mt-1 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
                     <button
                       onClick={() => handleProgramsClick('Webinars')}
@@ -350,23 +350,15 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
                       Schedules
                     </button>
                   </div>
-                )}
+                )} */}
               </div>
 
               <a href="#" className=" px-3 py-2 text-sm font-normal hover:text-gray-300">
                 Career
               </a>
             </nav>
-
-            <button
-              className="md:hidden"
-              onClick={() => setIsMenuOpen(true)}
-            >
-              <Menu className="h-6 w-6" />
-            </button>
-
-            <div className="hidden md:flex items-center space-x-4 ml-5">
-              <div className="flex items-center">
+            <div className='flex gap-5'>
+ <div className="flex items-center">
                 {isSearchOpen ? (
                   <form onSubmit={handleSearchSubmit} className="flex items-center">
                     <div className="relative">
@@ -376,7 +368,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
                         value={searchValue}
                         onChange={handleInputChange}
                         placeholder="Search..."
-                        className="w-64 pl-4 pr-10 py-2 border border-gray-300 rounded-lg focus:outline-none"
+                        className="w-32 md:w-64 pl-4 pr-10 py-2 border border-gray-300 rounded-lg focus:outline-none"
                       />
                       <button
                         type="button"
@@ -399,17 +391,28 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
                   </button>
                 )}
               </div>
+            <button
+              className="md:hidden"
+              onClick={() => setIsMenuOpen(true)}
+            >
+              <Menu className="h-6 w-6" />
+            </button>
+            </div>
+
+
+            <div className="hidden md:flex items-center space-x-4 ml-5">
+             
 
               <button className={`${getButtonColor()} px-4 py-1 rounded-lg text-sm font-medium hover:scale-105 cursor-pointer transition-colors duration-200`}>
                 Login
               </button>
 
-              <div className=" cursor-pointer">
+              <div className={` cursor-pointer ${getHeaderTextColor}`}>
                 <select defaultValue={'IND'} className=" cursor-pointer">
-                  <option value="IND" className='cursor-pointer'>IND</option>
-                  <option value="SGP" className='cursor-pointer'>SGP</option>
-                  <option value="UAE" className='cursor-pointer'>UAE</option>
-                  <option value="USA" className='cursor-pointer'>USA</option>
+                  <option value="IND" className='cursor-pointer text-black'>IND</option>
+                  <option value="SGP" className='cursor-pointer  text-black'>SGP</option>
+                  <option value="UAE" className='cursor-pointer  text-black'>UAE</option>
+                  <option value="USA" className='cursor-pointer  text-black'>USA</option>
                 </select>
               </div>
             </div>
@@ -440,10 +443,10 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
               className="text-white text-base hover:text-gray-300 flex items-center justify-between w-full cursor-pointer"
             >
               <span>Our programs</span>
-              <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isMobileProgramsOpen ? 'rotate-180' : ''}`} />
+              {/* <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isMobileProgramsOpen ? 'rotate-180' : ''}`} /> */}
             </button>
             
-            {isMobileProgramsOpen && (
+            {/* {isMobileProgramsOpen && (
               <div className="mt-2 ml-4 space-y-2">
                 <button
                   onClick={() => handleMobileProgramsClick('Webinars')}
@@ -458,7 +461,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
                   Schedules
                 </button>
               </div>
-            )}
+            )} */}
           </div>
 
           <a href="#" className="text-white text-base hover:text-gray-300">
