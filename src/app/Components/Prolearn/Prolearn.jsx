@@ -63,7 +63,7 @@ export default function Prolearn() {
   return (
     <div className="relative  w-full bg-white">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ccc_0px,transparent_1px),linear-gradient(to_bottom,#ccc_0px,transparent_1px)] bg-[size:32px_32px] opacity-50 pointer-events-none z-0" />
-      <div className="relative flex flex-col justify-center items-center z-10 p-5">
+      <div className="relative flex flex-col justify-center items-center z-10 p-2 md:p-5">
         <h1 className="text-[#003663] text-4xl font-bold w-full text-center mb-2">
           Pro Learn
         </h1>
@@ -71,7 +71,7 @@ export default function Prolearn() {
           Master skills your way, anytime, anywhere.
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 mt-3 px-10">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-10 mt-3 ">
           {coursecard.map((card, i) => (
             <div
               key={i}

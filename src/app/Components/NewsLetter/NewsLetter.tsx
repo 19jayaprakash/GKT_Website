@@ -34,9 +34,9 @@ const Newsletter = () => {
   const width = useTransform(
     scrollYProgress,
     [0, 0.8],
-    ["100%", `${isMobile ? "90%" : "70%"}`]
+    ["100%", `${isMobile ? "100%" : "70%"}`]
   );
-  const x = useTransform(scrollYProgress, [0, 0.8], ["0%", "30%"]);
+  const x = useTransform(scrollYProgress, [0, 0.8], ["0%",`${isMobile ? "10%" : "30%"}`]);
   const y = useTransform(
     scrollYProgress,
     [0, 0.8],
@@ -87,7 +87,49 @@ const Newsletter = () => {
       ref={containerRef}
       className="min-h-[200vh] w-full relative bg-[#F6F6F9] rounded-b-4xl "
     >
-      <div className="absolute bottom-40 w-1/2 z-20 flex flex-col items-center">
+     
+      <div className="sticky top-0 h-screen w-full flex items-center justify-center z-10">
+        <motion.div
+          style={
+            {
+              scale: smoothScale,
+              x: smoothX,
+              y: smoothY,
+              width: smoothwidth,
+            } as MotionStyle
+          }
+          className={`relative  h-96 md:h-screen origin-center rounded-4xl `}
+        >
+            <motion.div
+              className="w-fit"
+              style={{ opacity: abstractopacity } as MotionStyle}
+            >
+              <Image
+                src="/abstract.svg"
+                className={`absolute -left-40 -top-25`}
+                alt="email"
+                width={520}
+                height={520}
+              />
+              <a
+                href="https://algo4hi.com/"
+                target="_blank"
+                className="z-20 -left-60 top-55 absolute text-4xl -rotate-90 px-4 py-2 bg-black text-white"
+              >
+                www.algo4hi.com
+              </a>
+            </motion.div>
+ 
+          <Image
+            src={images[currentImageIndex]}
+            alt="Newsletter Visual"
+            fill
+            className={`object-cover  rounded-4xl transition-opacity duration-700 ease-in-out`}
+            priority
+          />
+        </motion.div>
+      </div>
+       <div className="absolute bottom-10 md:bottom-40 w-full md:w-1/2 z-20 flex flex-col items-center">
         <motion.div
           initial={{ y: 100, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -100,7 +142,7 @@ const Newsletter = () => {
           initial={{ y: 100, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 1 }}
-          className="text-sm md:text-md text-black font-normal text-start md:text-center p-5 w-[80%] "
+          className="text-sm md:text-md text-black font-normal text-center md:text-center p-5 w-[90%] md:w-[80%] "
  
         >
           Receive expert insights and practical tools that help you leverage AI
@@ -113,9 +155,7 @@ const Newsletter = () => {
           transition={{ duration: 1 }}
           className="w-fit flex  flex-row  justify-center items-center border-[#707070] border-1 m-auto px-2 py-1 rounded-4xl gap-1"
         >
-          {!isMobile && (
             <Image src="/emailicon.png" alt="email" width={20} height={20} className="ml-3"/>
-          )}
           <input
             type="text"
             placeholder="Enter your Email"
@@ -135,53 +175,9 @@ const Newsletter = () => {
           Subscribe today and accelerate your AI knowledge
         </motion.div>
       </div>
-      <div className="sticky top-0 h-screen w-full flex items-center justify-center z-10">
-        <motion.div
-          style={
-            {
-              scale: smoothScale,
-              x: smoothX,
-              y: smoothY,
-              width: smoothwidth,
-            } as MotionStyle
-          }
-          className={`relative  h-screen origin-center rounded-4xl `}
-        >
-          {!isMobile && (
-            <motion.div
-              className="w-fit"
-              style={{ opacity: abstractopacity } as MotionStyle}
-            >
-              <Image
-                src="/abstract.svg"
-                className={`absolute -left-40 -top-25`}
-                alt="email"
-                width={520}
-                height={520}
-              />
-              <a
-                href="https://algo4hi.com/"
-                target="_blank"
-                className="z-20 -left-60 top-55 absolute text-4xl -rotate-90 px-4 py-2 bg-black"
-              >
-                www.algo4hi.com
-              </a>
-            </motion.div>
-          )}
- 
-          <Image
-            src={images[currentImageIndex]}
-            alt="Newsletter Visual"
-            fill
-            className={`object-cover  rounded-4xl transition-opacity duration-700 ease-in-out`}
-            priority
-          />
-        </motion.div>
-      </div>
     </section>
   );
 };
  
 export default Newsletter;
- 
  

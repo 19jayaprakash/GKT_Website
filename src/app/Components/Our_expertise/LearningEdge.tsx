@@ -1,4 +1,5 @@
 "use client";
+import { ArrowUpRightIcon } from "lucide-react";
 import Image from "next/image";
 import React, { useState, useEffect, useRef } from "react";
 import { CiCircleChevLeft, CiCircleChevRight } from "react-icons/ci";
@@ -173,7 +174,7 @@ const handleMouseLeave = () => {
 
   return (
    <div
-  className="flex h-full justify-center w-full gap-4 overflow-visible py-8 relative z-20 mt-10"
+  className="flex h-full justify-center w-full gap-4 overflow-visible py-8 relative z-20 mt-0  md:mt-10 "
   onMouseEnter={handleMouseEnter}
   onMouseLeave={handleMouseLeave}
 >
@@ -232,7 +233,7 @@ const handleMouseLeave = () => {
               </div>
 
               <div className="ml-8 p-2">
-                {/* {activeIndex === 0 && (
+                {activeIndex === 0 && (
                   <>
                     <p className="text-sm opacity-70">Ready to stay ahead?</p>
                     <div className="flex flex-col items-start gap-1 mt-1">
@@ -242,7 +243,7 @@ const handleMouseLeave = () => {
                       </div>
                     </div>
                   </>
-                )} */}
+                )}
 
                 <div className="flex flex-col items-start gap-1 mt-3">
                   <p className="text-white text-sm">
@@ -280,7 +281,7 @@ const handleMouseLeave = () => {
       ) : (
         <div className="flex w-full h-[470px] gap-4">
           {categories.map((category, index) => {
-            const isActive = activeIndex === index;
+            const isActive = activeIndex==index;
 
             return (
               <div
@@ -315,7 +316,7 @@ const handleMouseLeave = () => {
                           <div key={i}>
                             {desc.content && (
                               <p className="text-xs opacity-80 w-11/12 text-justify mb-2">
-                                {desc.content}
+                                {desc.content} 
                               </p>
                             )}
                             {desc.keyPoints && (
@@ -331,7 +332,7 @@ const handleMouseLeave = () => {
                         ))}
                       </div>
                       <div>
-                        {/* {activeIndex == 0 && (
+                        {activeIndex == 0 && (
                           <>
                             <p className="text-sm opacity-70">
                               Ready to stay ahead?
@@ -343,7 +344,7 @@ const handleMouseLeave = () => {
                               </div>
                             </div>
                           </>
-                        )} */}
+                        )}
 
                         <div className="flex flex-col items-start gap-1 mt-6">
                           <p className="text-white text-sm">
@@ -386,9 +387,11 @@ const handleMouseLeave = () => {
   }}
 >
   <div className="flex flex-col backdrop-blur-xl h-full w-full justify-between items-center p-4">
-    <div className="transform rotate-90 text-sm mt-16 whitespace-nowrap">
-      <span>{category.type}</span>
+    <div className="transform rotate-90 text-sm origin-left ml-12  w-full whitespace-nowrap">
+      <span className="flex justify-start ">{category.type}</span>
     </div>
+<div  
+>
 
     <Image
       src="/Service_images/Plus_icon.png"
@@ -396,6 +399,7 @@ const handleMouseLeave = () => {
       height={12}
       width={30}
     />
+    </div>
   </div>
 </div>
 

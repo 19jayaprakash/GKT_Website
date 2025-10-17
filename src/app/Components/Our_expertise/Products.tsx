@@ -19,7 +19,7 @@ const products: Product[] = [
   {
     title: "VivaahAI",
     content: "hello",
-    image: "/Products/vivaaha.png",
+    image: "/Products/vivaaha1.png",
   },
   {
     title: "Stu",
@@ -76,7 +76,7 @@ const Products: React.FC = () => {
           <ChevronLeft size={32} />
         </button>
 
-        <div className="w-full sm:w-[80%] md:w-[100%] max-w-[700px] aspect-video relative overflow-hidden rounded-xl shadow-md transition-all duration-700 ease-in-out">
+        <div className="w-full sm:w-[80%] md:w-[100%] max-w-[700px] aspect-video md:h-[450px] relative overflow-hidden rounded-xl shadow-md transition-all duration-700 ease-in-out">
           <Image
             key={activeIndex}
             src={products[activeIndex].image}
@@ -94,7 +94,6 @@ const Products: React.FC = () => {
         </button>
       </div>
 
-      {/* Progress bar */}
       <div className="flex justify-center items-center gap-2 mt-4 w-full max-w-[200px]">
         {products.map((_, index) => (
           <div

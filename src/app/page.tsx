@@ -18,6 +18,9 @@ export default function Home() {
   const expertiseRef = useRef<HTMLDivElement>(null);
   const networkRef = useRef<HTMLDivElement>(null);
   const clientsRef = useRef<HTMLDivElement>(null); 
+  const prolearnRef = useRef<HTMLDivElement>(null); 
+  const newsRef = useRef<HTMLDivElement>(null); 
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +29,8 @@ export default function Home() {
         { name: "home", ref: homeRef },
         { name: "expertise", ref: expertiseRef },
         { name: "network", ref: networkRef },
+        {name: "prolearn", ref: prolearnRef},
+        {name: "news", ref: newsRef},
         { name: "clients", ref: clientsRef },
       ];
 
@@ -67,7 +72,7 @@ export default function Home() {
             <div ref={expertiseRef}>
               <ExpertiseScroll />
             </div>
-            <div>
+            <div ref ={prolearnRef}>
               <Prolearn />
             </div>
             <div ref={networkRef}>
@@ -76,13 +81,13 @@ export default function Home() {
             <div ref={clientsRef}>
               <Clients />
             </div>
-            <div>
+            <div ref={newsRef}>
               <Newsletter />
             </div>
           </div>
         </div>
       </ParallaxProvider>
-      <Footer />
+      <Footer activeSection="home" />
 
       {/* <Image
         src={"/stu.png"}

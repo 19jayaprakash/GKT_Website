@@ -1,10 +1,13 @@
+'use client'
 import React from "react";
 import Header from "../Components/Header/Header";
 import Image from "next/image";
 import Footer from "../Components/Footer/Footer";
 import OutsourcingServices from "../Components/Consulting/Consulting";
+import SmoothScroll from "../Components/SmoothScroll";
+import { motion, scale } from "framer-motion";
 
-interface Section {
+interface Service {
     title :string,
     description:string
 }
@@ -12,13 +15,24 @@ interface Section {
 
 const ConsultingOutsourcingPage: React.FC = () => {
 
-    const Consulting : Section[] =[
-        {
-            title:"",
-            description:""
-        }
-    ]
-
+  const services: Service[] = [
+    {
+      title: "Digital Transformation & IT Solutions",
+      description: "Transform legacy systems and unlock operational excellence with forward-thinking IT consulting and innovative digital transformation strategies designed for sustained growth."
+    },
+    {
+      title: "Cybersecurity & Risk Management",
+      description: "Secure your business with reliable cybersecurity measures, detailed risk assessments, and proactive solutions to prevent potential threats."
+    },
+    {
+      title: "Enterprise Solutions & Process Automation",
+      description: "Boost productivity and streamline operations with smart automation tools, scalable ERP systems, and optimized business workflows."
+    },
+    {
+      title: "Cloud Strategy & Deployment",
+      description: "Empower your cloud journey with customized strategies, smooth integration processes, and comprehensive cloud lifecycle management."
+    }
+  ];
 
       const technologies = [
     { src: "/Consulting/Technology/meta.png", alt: "Meta" },
@@ -76,11 +90,31 @@ const ConsultingOutsourcingPage: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-24">
-        <p className="text-[#001A75] text-lg font-semibold">Consulting</p>
-        <div>
-
-        </div>
+        <p className="text-[#001A75] text-lg font-semibold mb-6">Consulting</p>
+      <div className= "mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
+          {services.map((service, index) => (
+            <motion.div
+            initial={{scale:0.9,y:100}}
+            whileInView={{scale:1,y:0}}
+            transition={{duration:1,stiffness:40}}
+              key={index}
+              className="bg-white w-64 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 p-4 border border-gray-100"
+            >
+              <h3 className="text-lg font-semibold text-gray-900 mb-4 leading-tight">
+                {service.title}
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                {service.description}
+              </p>
+            </motion.div>
+          ))}
       </div>
+    </div>
+      </div>
+
+            <OutsourcingServices/>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-24">
         <h2 className="text-xl font-semibold text-[#1A237E] mb-6">
           Technology Expertise
@@ -113,8 +147,8 @@ const ConsultingOutsourcingPage: React.FC = () => {
           ))}
         </div>
       </div>
-      <OutsourcingServices/>
-      <Footer/>
+      <div className=" bg-gray-50"></div> 
+      <Footer activeSection={"Consulting"}/>
     </div>
   );
 };

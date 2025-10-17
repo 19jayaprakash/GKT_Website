@@ -145,7 +145,7 @@ const Network = () => {
     <div className="bg-[#F6F6F9] w-full py-10 flex flex-col justify-center items-center text-[#003663] px-4">
       <p className="text-2xl font-bold mb-10">Our Partners</p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl w-full">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl w-full">
         {logos.map((logo, index) => (
           <div
             key={index}
